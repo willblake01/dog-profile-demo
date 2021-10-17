@@ -83,3 +83,8 @@ and (-webkit-min-device-pixel-ratio: 2) {
   height: 100%;
   width: 100%;
 }
+
+.swiper {
+  height: auto;
+  width: auto;
+}

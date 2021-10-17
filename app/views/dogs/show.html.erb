@@ -1,8 +1,30 @@
 <section>
   <h2><%= @dog.name %></h2>
-
-  <% @dog.images.each do |image| %>
-    <%= image_tag url_for(image), alt: "Photo of #{@dog.name}" %>
+  <% if @dog.images.count > 1 %>
+    <!-- Slider main container -->
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <% @dog.images.each do |image| %>
+          <div class="swiper-slide">
+            <%= image_tag url_for(image), alt: "Photo of #{@dog.name}" %>
+          </div>
+        <% end %>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    <%= javascript_include_tag 'carousel' %>
+  <% else %>
+    <% @dog.images.each do |image| %>
+      <div class="swiper-slide">
+        <%= image_tag url_for(image), alt: "Photo of #{@dog.name}" %>
+      </div>
+    <% end %>
   <% end %>
 
   <p><%= @dog.description %></p>
