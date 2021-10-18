@@ -1,6 +1,10 @@
-<a href="<%= url_for(dog) %>", data-turbolinks="false">
-  <article class="dog">
-    <h2 class="dog-name"><%= dog.name %></h2>
-    <%= image_tag url_for(dog.images.first), class: "dog-photo", alt: "Photo of #{dog.name}" %>
-  </article>
+<a href="<%= url_for(dog) %>", data-turbolinks="false", class="text-decoration-none text-reset">
+  <div class="card shadow p-3 mb-5 bg-body rounded">
+    <h5 class="dog-name card-header"><%= dog.name %></h5>
+    <div class="card-body" style="padding: 0">
+      <article class="dog">
+        <%= image_tag url_for(dog.images.first), class: "dog-photo", alt: "Photo of #{dog.name}" %>
+      </article>
+    </div>
+  </div>
 </a>

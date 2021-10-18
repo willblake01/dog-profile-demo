@@ -18,7 +18,7 @@
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
     </div>
-    <%= javascript_include_tag 'carousel' %>
+    <%= javascript_include_tag "carousel" %>
   <% else %>
     <% @dog.images.each do |image| %>
       <div class="swiper-slide">
@@ -29,7 +29,8 @@
 
   <p><%= @dog.description %></p>
 
-  <%= link_to "Edit #{@dog.name}'s Profile", edit_dog_path %>
-  <br>
-  <%= link_to "Delete #{@dog.name}'s Profile", dog_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <div class="btn-group m-2" role="group" aria-label="Edit dog and delete dog button group">
+    <%= link_to "Edit #{@dog.name}'s Profile", edit_dog_path, class: "btn btn-primary text-decoration-none link-light" %>
+    <%= link_to "Delete #{@dog.name}'s Profile", dog_path, class: "btn btn-primary text-decoration-none link-light", method: :delete, data: { confirm: "Are you sure?" } %>
+  </div>
 </section>
