@@ -6,5 +6,6 @@
         <%= image_tag url_for(dog.images.first), class: "dog-photo", alt: "Photo of #{dog.name}" %>
       </article>
     </div>
+    <p><%= dog.likes.count %> <%= (dog.likes.count) == 1 ? 'Like' : 'Likes'%></p>
   </div>
 </a>

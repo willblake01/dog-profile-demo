@@ -27,6 +27,15 @@
     <% end %>
   <% end %>
 
+  <% pre_like = @dog.likes.find { |like| like.user_id == current_user.id} %>
+  <% if pre_like %>
+    <%= button_to 'Unlike', dog_like_path(@dog, pre_like), method: :delete %>
+  <% else %>
+    <%= button_to 'Like', dog_likes_path(@dog), method: :post %>
+  <% end %>
+
+  <p><%= @dog.likes.count %> <%= (@dog.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+
   <p><%= @dog.description %></p>
 
   <div class="btn-group m-2" role="group" aria-label="Edit dog and delete dog button group">

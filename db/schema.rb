@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_17_161843) do
+ActiveRecord::Schema.define(version: 2021_10_26_225126) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(version: 2021_10_17_161843) do
     t.datetime "updated_at", null: false
     t.integer "owner_id"
     t.index ["owner_id"], name: "index_dogs_on_owner_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "dog_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dog_id"], name: "index_likes_on_dog_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "owners", force: :cascade do |t|
